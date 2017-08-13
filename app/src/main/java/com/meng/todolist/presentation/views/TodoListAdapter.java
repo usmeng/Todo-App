@@ -45,6 +45,7 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean selected) {
                 holder.mItem.isFinished = selected;
+                holder.mView.setAlpha(selected ? 0.7f : 1);
             }
         });
 
