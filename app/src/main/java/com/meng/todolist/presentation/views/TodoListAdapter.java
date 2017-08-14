@@ -36,6 +36,7 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
+        holder.mView.setAlpha(holder.mItem.isFinished ? 0.5f : 1);
         holder.mDateView.setText(DateUtil.convert(holder.mItem.startTime));
         holder.mTittleView.setText(holder.mItem.title);
         holder.mStatusCheckBox.setChecked(holder.mItem.isFinished);

@@ -120,8 +120,7 @@ public class AddOrEditTodoFragment extends Fragment {
                 }
 
                 int priorityValue = priority.getProgress();
-                if(mTodoItem == null) mTodoItem = new TodoItem("");
-                mTodoItem.title = titleValue;
+                if(mTodoItem == null) mTodoItem = new TodoItem(titleValue);
                 mTodoItem.note = note.getText().toString();
                 mTodoItem.priority = priorityValue;
                 mTodoItem.startTime = DateUtil.convert(date.getText().toString()

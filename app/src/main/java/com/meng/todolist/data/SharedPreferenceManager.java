@@ -50,9 +50,13 @@ public class SharedPreferenceManager {
         int id = 0;
         for(String itemStr : mTodoSet) {
             String[] values = itemStr.split(",");
-            TodoItem item = new TodoItem(String.valueOf(++id), values[0], values[1],
-                    Long.parseLong(values[2]), Long.parseLong(values[3]),
-                    Integer.parseInt(values[4]), Boolean.parseBoolean(values[5]));
+            TodoItem item = new TodoItem(values[TotoItemColumn.TITILE]);
+            item.setId(String.valueOf(id++));
+            item.setNote(values[TotoItemColumn.NOTE]);
+            item.setStartTime(Long.parseLong(values[TotoItemColumn.START_TIME]));
+            item.setCreateTime(Long.parseLong(values[TotoItemColumn.CREATE_TIME]));
+            item.setPriority(Integer.parseInt(values[TotoItemColumn.PRIORITY]));
+            item.setFinished(Boolean.parseBoolean(values[TotoItemColumn.IS_FINISHED]));
             mData.add(item);
         }
         Collections.sort(mData, new Comparator<TodoItem>() {
@@ -65,7 +69,7 @@ public class SharedPreferenceManager {
     }
 
     private String toString(TodoItem item) {
-        return item.title + "," + item.note + "," + item.startTime + ","
+        return item.id + "," + item.title + "," + item.note + "," + item.startTime + ","
                 + item.createTime + "," + item.priority + "," + item.isFinished;
     }
 }

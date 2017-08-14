@@ -1,14 +1,13 @@
 package com.meng.todolist.presentation.beans;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by mengzhou on 8/10/17.
  */
 
 public class TodoItem implements Serializable{
-    public final String id;
+    public String id;
     public String title;
     public String note;
     public long   startTime;
@@ -16,38 +15,61 @@ public class TodoItem implements Serializable{
     public int    priority;
     public boolean isFinished;
 
-    public TodoItem(String id, String title, String note, long startTime, long createTime, int priority, boolean isFinished) {
-        this.id = id;
+    public TodoItem(String title) {
         this.title = title;
+    }
+
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
         this.note = note;
+    }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
         this.startTime = startTime;
+    }
+
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(long createTime) {
         this.createTime = createTime;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
         this.priority = priority;
-        this.isFinished = isFinished;
     }
 
-    public TodoItem(String id, String title, String note, long startTime, int priority, boolean isFinished) {
-        this(id, title, note, startTime, new Date().getTime(), priority, false);
+    public boolean isFinished() {
+        return isFinished;
     }
 
-    public TodoItem(String id, String title, String note, long startTime, int priority) {
-        this(id, title, note, startTime, priority, false);
-    }
-
-    public TodoItem(String id, String title, String note, long startTime) {
-        this(id, title, note, startTime, 0);
-    }
-
-    public TodoItem(String id, String title, String note) {
-        this(id, title, note, 0, 0);
-    }
-
-    public TodoItem(String id, String title) {
-        this(id, title, "");
-    }
-
-    public TodoItem(String id) {
-        this(id, "");
+    public void setFinished(boolean finished) {
+        isFinished = finished;
     }
 
     @Override
